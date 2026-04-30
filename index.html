@@ -435,10 +435,104 @@
             .personas-grid, .payment-options, .sources-grid { grid-template-columns: 1fr; }
             .module-card { flex-direction: column; align-items: flex-start; }
             .module-time { margin-top: 15px; }
-        }
+        }/* ANIMATION MONTGOLFIÈRES */
+.balloons-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.balloon {
+    position: absolute;
+    bottom: -100px;
+    width: 60px;
+    height: 80px;
+    opacity: 0.6;
+}
+
+.balloon:nth-child(1) {
+    left: 10%;
+    animation: float 15s infinite ease-in-out;
+    animation-delay: 0s;
+}
+
+.balloon:nth-child(2) {
+    left: 25%;
+    animation: float 18s infinite ease-in-out;
+    animation-delay: 2s;
+}
+
+.balloon:nth-child(3) {
+    left: 50%;
+    animation: float 20s infinite ease-in-out;
+    animation-delay: 4s;
+}
+
+.balloon:nth-child(4) {
+    left: 75%;
+    animation: float 16s infinite ease-in-out;
+    animation-delay: 1s;
+}
+
+.balloon:nth-child(5) {
+    left: 90%;
+    animation: float 19s infinite ease-in-out;
+    animation-delay: 3s;
+}
+
+@keyframes float {
+    0% {
+        bottom: -100px;
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.6;
+    }
+    90% {
+        opacity: 0.6;
+    }
+    100% {
+        bottom: 110vh;
+        opacity: 0;
+        transform: translateX(100px);
+    }
+}
+
+@media (max-width: 768px) {
+    .balloon {
+        width: 40px;
+        height: 55px;
+    }
+}
     </style>
 </head>
-<body>
+<body><div class="balloons-container">
+        <svg class="balloon" viewBox="0 0 60 80" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="30" cy="25" rx="20" ry="25" fill="#FF6B9D" opacity="0.8"/>
+            <path d="M 30 50 Q 28 60 30 70" stroke="#FFD700" stroke-width="1"/>
+        </svg>
+        <svg class="balloon" viewBox="0 0 60 80" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="30" cy="25" rx="20" ry="25" fill="#4ECDC4" opacity="0.8"/>
+            <path d="M 30 50 Q 28 60 30 70" stroke="#FFD700" stroke-width="1"/>
+        </svg>
+        <svg class="balloon" viewBox="0 0 60 80" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="30" cy="25" rx="20" ry="25" fill="#95E1D3" opacity="0.8"/>
+            <path d="M 30 50 Q 28 60 30 70" stroke="#FFD700" stroke-width="1"/>
+        </svg>
+        <svg class="balloon" viewBox="0 0 60 80" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="30" cy="25" rx="20" ry="25" fill="#F38181" opacity="0.8"/>
+            <path d="M 30 50 Q 28 60 30 70" stroke="#FFD700" stroke-width="1"/>
+        </svg>
+        <svg class="balloon" viewBox="0 0 60 80" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="30" cy="25" rx="20" ry="25" fill="#AA96DA" opacity="0.8"/>
+            <path d="M 30 50 Q 28 60 30 70" stroke="#FFD700" stroke-width="1"/>
+        </svg>
+    </div>
     <section class="hero">
         <div class="hero-greeting">👋 Salut, je m'appelle Zina</div>
         <h1>De Maman Épuisée à <span class="hero-highlight">Libre</span></h1>
