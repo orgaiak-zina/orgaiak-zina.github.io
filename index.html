@@ -19,7 +19,6 @@
             overflow-x: hidden;
         }
         
-        /* HERO SECTION */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -109,7 +108,6 @@
             box-shadow: 0 10px 30px rgba(0, 217, 255, 0.3);
         }
         
-        /* SECTION */
         section {
             padding: 80px 20px;
             max-width: 1200px;
@@ -127,7 +125,6 @@
             color: #00D9FF;
         }
         
-        /* FOR YOU SECTION */
         .for-you {
             background: linear-gradient(135deg, #3a6b8d 0%, #2d5270 100%);
             color: #ffffff;
@@ -186,7 +183,6 @@
             font-weight: bold;
         }
         
-        /* MODULES SECTION */
         .modules {
             background: linear-gradient(135deg, #3a6b8d 0%, #2d5270 100%);
         }
@@ -211,7 +207,6 @@
             padding: 25px 30px;
             margin-bottom: 20px;
             border-left: 4px solid #00D9FF;
-            border-radius: 0;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -236,7 +231,6 @@
             white-space: nowrap;
         }
         
-        /* PRICING SECTION */
         .pricing-intro {
             background: linear-gradient(135deg, #3a6b8d 0%, #2d5270 100%);
             color: #ffffff;
@@ -258,11 +252,6 @@
             background: #2d5270;
             padding: 30px;
             border-radius: 8px;
-            position: relative;
-        }
-        
-        .pricing-card.primary {
-            border-left-width: 6px;
         }
         
         .pricing-badge {
@@ -280,12 +269,6 @@
             font-size: 20px;
             font-weight: 700;
             color: #ffffff;
-            margin-bottom: 15px;
-        }
-        
-        .pricing-card p {
-            color: #999999;
-            font-size: 14px;
             margin-bottom: 15px;
         }
         
@@ -311,19 +294,12 @@
             margin-bottom: 30px;
         }
         
-        .value-banner p:first-child {
-            color: #999999;
-            font-size: 14px;
-            margin-bottom: 10px;
-        }
-        
         .value-amount {
             font-size: 24px;
             font-weight: 800;
             color: #00D9FF;
         }
         
-        /* PAYMENT OPTIONS */
         .payment-section {
             background: linear-gradient(135deg, #3a6b8d 0%, #2d5270 100%);
         }
@@ -364,11 +340,6 @@
             margin-bottom: 15px;
         }
         
-        .payment-detail {
-            font-size: 14px;
-            color: #999999;
-        }
-        
         .disclaimer {
             text-align: center;
             color: #999999;
@@ -376,7 +347,6 @@
             margin-bottom: 40px;
         }
         
-        /* TESTIMONIALS */
         .testimonials {
             background: linear-gradient(135deg, #3a6b8d 0%, #2d5270 100%);
         }
@@ -386,7 +356,6 @@
             border-left: 4px solid #00D9FF;
             padding: 30px;
             margin-bottom: 25px;
-            border-radius: 0;
         }
         
         .testimonial-quote {
@@ -402,7 +371,6 @@
             color: #999999;
         }
         
-        /* REVENUE SOURCES */
         .sources {
             background: linear-gradient(135deg, #3a6b8d 0%, #2d5270 100%);
         }
@@ -416,7 +384,6 @@
         .source-item {
             background: #2d5270;
             padding: 20px;
-            border-radius: 0;
             display: flex;
             align-items: center;
             gap: 15px;
@@ -427,12 +394,6 @@
             font-size: 20px;
         }
         
-        .source-text {
-            color: #ffffff;
-            font-size: 15px;
-        }
-        
-        /* FAQ */
         .faq {
             background: linear-gradient(135deg, #3a6b8d 0%, #2d5270 100%);
         }
@@ -441,7 +402,6 @@
             background: #2d5270;
             padding: 30px;
             margin-bottom: 20px;
-            border-radius: 0;
             border-top: 1px solid rgba(0, 217, 255, 0.2);
         }
         
@@ -458,7 +418,6 @@
             line-height: 1.8;
         }
         
-        /* FOOTER CTA */
         .final-cta {
             background: linear-gradient(135deg, #2d5270 0%, #1f4158 100%);
             padding: 80px 20px;
@@ -470,449 +429,153 @@
             margin-bottom: 40px;
         }
         
-        /* Responsive */
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 36px;
-            }
-            
-            .hero-features {
-                gap: 20px;
-            }
-            
-            .personas-grid, .payment-options, .sources-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .module-card {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            
-            .module-time {
-                margin-top: 15px;
-            }
+            .hero h1 { font-size: 36px; }
+            .hero-features { gap: 20px; }
+            .personas-grid, .payment-options, .sources-grid { grid-template-columns: 1fr; }
+            .module-card { flex-direction: column; align-items: flex-start; }
+            .module-time { margin-top: 15px; }
         }
     </style>
 </head>
 <body>
-    <!-- HERO SECTION -->
     <section class="hero">
         <div class="hero-greeting">👋 Salut, je m'appelle Zina</div>
         <h1>De Maman Épuisée à <span class="hero-highlight">Libre</span></h1>
         <p class="hero-subtitle">(Ou de Business Bloqué à Scalable)</p>
-        
-        <div class="hero-problem">
-            <strong>Tu es maman ET tu donnes tout?</strong><br>
-            Ou entrepreneur ET ton business stagne?
-        </div>
-        
+        <div class="hero-problem"><strong>Tu es maman ET tu donnes tout?</strong><br>Ou entrepreneur ET ton business stagne?</div>
         <p class="hero-solution">Je t'apprends comment automatiser 80 % de ton travail pour que tu récupères TA liberté.</p>
-        
         <p class="hero-problem" style="color: #ffffff; font-weight: 700;">Plus de temps. Vraies sources de revenus. Un vrai système.</p>
-        
         <div class="hero-features">
-           <div class="feature-badge">30h+ de contenu</div>
+            <div class="feature-badge">30h+ de contenu</div>
             <div class="feature-badge">10 sources de revenus</div>
             <div class="feature-badge">Licence MRR incluse</div>
             <div class="feature-badge">3 formations au prix d'1</div>
         </div>
-        
-        <button class="cta-primary">Je veux ma liberté digitale →</button>
+        <a href="https://beacons.ai/caplibertedigitale" class="cta-primary">Je veux ma liberté digitale →</a>
     </section>
 
-    <!-- FOR YOU SECTION -->
     <section class="for-you">
         <h2>Cette formation est <span class="highlight-cyan">faite pour toi</span> si...</h2>
-        
         <div class="personas-grid">
-            <div class="persona-card">
-                <p>✓ Tu veux générer des revenus en ligne</p>
-            </div>
-            <div class="persona-card">
-                <p>✓ Tu manques de temps et d'énergie</p>
-            </div>
-            <div class="persona-card">
-                <p>✓ Tu veux automatiser ton business</p>
-            </div>
-            <div class="persona-card">
-                <p>✓ Tu veux cartonner sur les réseaux</p>
-            </div>
+            <div class="persona-card"><p>✓ Tu veux générer des revenus en ligne</p></div>
+            <div class="persona-card"><p>✓ Tu manques de temps et d'énergie</p></div>
+            <div class="persona-card"><p>✓ Tu veux automatiser ton business</p></div>
+            <div class="persona-card"><p>✓ Tu veux cartonner sur les réseaux</p></div>
         </div>
-        
         <div class="exclusions">
             <h3>Pas besoin d'être :</h3>
-            <div class="exclusion-item">
-                <span class="exclusion-mark">✗</span>
-                <span>Influenceuse</span>
-            </div>
-            <div class="exclusion-item">
-                <span class="exclusion-mark">✗</span>
-                <span>Pro d'Instagram</span>
-            </div>
-            <div class="exclusion-item">
-                <span class="exclusion-mark">✗</span>
-                <span>Experte en digital</span>
-            </div>
-            <div class="exclusion-item">
-                <span class="exclusion-mark">✗</span>
-                <span>De démarcher ou harceler qui que ce soit</span>
-            </div>
+            <div class="exclusion-item"><span class="exclusion-mark">✗</span><span>Influenceuse</span></div>
+            <div class="exclusion-item"><span class="exclusion-mark">✗</span><span>Pro d'Instagram</span></div>
+            <div class="exclusion-item"><span class="exclusion-mark">✗</span><span>Experte en digital</span></div>
+            <div class="exclusion-item"><span class="exclusion-mark">✗</span><span>De démarcher ou harceler qui que ce soit</span></div>
         </div>
     </section>
 
-    <!-- MODULES SECTION -->
     <section class="modules">
         <h2>Les <span class="highlight-cyan">modules</span> — étape par étape</h2>
-        
         <div class="module-category">
             <div class="category-header">01 – FONDATIONS</div>
-            <div class="module-card">
-                <div class="module-content">
-                    <h3>Commence ici</h3>
-                    <p>À regarder en premier</p>
-                </div>
-            </div>
-            <div class="module-card">
-                <div class="module-content">
-                    <h3>Mindset d'entrepreneur</h3>
-                    <p>Toutes les clés de la réussite</p>
-                </div>
-                <div class="module-time">50 min</div>
-            </div>
-            <div class="module-card">
-                <div class="module-content">
-                    <h3>Money mindset</h3>
-                    <p>Débloque tes croyances sur l'argent</p>
-                </div>
-            </div>
-            <div class="module-card">
-                <div class="module-content">
-                    <h3>Optimisation du profil</h3>
-                    <p>Les bases pour convertir</p>
-                </div>
-                <div class="module-time">18 min</div>
-            </div>
+            <div class="module-card"><div class="module-content"><h3>Commence ici</h3><p>À regarder en premier</p></div></div>
+            <div class="module-card"><div class="module-content"><h3>Mindset d'entrepreneur</h3><p>Toutes les clés de la réussite</p></div><div class="module-time">50 min</div></div>
+            <div class="module-card"><div class="module-content"><h3>Money mindset</h3><p>Débloque tes croyances sur l'argent</p></div></div>
+            <div class="module-card"><div class="module-content"><h3>Optimisation du profil</h3><p>Les bases pour convertir</p></div><div class="module-time">18 min</div></div>
         </div>
-
         <div class="module-category">
             <div class="category-header">02 – CONTENU VIRAL</div>
-            <div class="module-card">
-                <div class="module-content">
-                    <h3>La méthode virale</h3>
-                    <p>Stratégie réseaux sociaux complète</p>
-                </div>
-                <div class="module-time">4h08</div>
-            </div>
-            <div class="module-card">
-                <div class="module-content">
-                    <h3>Création de contenu</h3>
-                    <p>Canva, Capcut, IA</p>
-                </div>
-            </div>
-            <div class="module-card">
-                <div class="module-content">
-                    <h3>Storytelling</h3>
-                    <p>Raconter ton histoire pour vendre</p>
-                </div>
-                <div class="module-time">31 min</div>
-            </div>
-            <div class="module-card">
-                <div class="module-content">
-                    <h3>Copywriting</h3>
-                    <p>Écrire pour convaincre</p>
-                </div>
-                <div class="module-time">16 min</div>
-            </div>
-            <div class="module-card">
-                <div class="module-content">
-                    <h3>Faceless marketing</h3>
-                    <p>Sans montrer ton visage</p>
-                </div>
-                <div class="module-time">45 min</div>
-            </div>
+            <div class="module-card"><div class="module-content"><h3>La méthode virale</h3><p>Stratégie réseaux sociaux complète</p></div><div class="module-time">4h08</div></div>
+            <div class="module-card"><div class="module-content"><h3>Création de contenu</h3><p>Canva, Capcut, IA</p></div></div>
+            <div class="module-card"><div class="module-content"><h3>Storytelling</h3><p>Raconter ton histoire pour vendre</p></div><div class="module-time">31 min</div></div>
+            <div class="module-card"><div class="module-content"><h3>Copywriting</h3><p>Écrire pour convaincre</p></div><div class="module-time">16 min</div></div>
+            <div class="module-card"><div class="module-content"><h3>Faceless marketing</h3><p>Sans montrer ton visage</p></div><div class="module-time">45 min</div></div>
         </div>
-
         <div class="module-category">
             <div class="category-header">03 – RÉSEAUX & MONÉTISATION</div>
-            <div class="module-card">
-                <div class="module-content">
-                    <h3>TikTok faceless</h3>
-                    <p>Lives et monétisation</p>
-                </div>
-                <div class="module-time">2h27</div>
-            </div>
-            <div class="module-card">
-                <div class="module-content">
-                    <h3>YouTube faceless</h3>
-                    <p>Automatisation complète</p>
-                </div>
-                <div class="module-time">2h49</div>
-            </div>
-            <div class="module-card">
-                <div class="module-content">
-                    <h3>Pinterest + IA + Affiliation</h3>
-                    <p>Formation complète incluse</p>
-                </div>
-            </div>
-            <div class="module-card">
-                <div class="module-content">
-                    <h3>Automatisations Instagram</h3>
-                    <p>Bot emails + automatisation</p>
-                </div>
-                <div class="module-time">38 min</div>
-            </div>
+            <div class="module-card"><div class="module-content"><h3>TikTok faceless</h3><p>Lives et monétisation</p></div><div class="module-time">2h27</div></div>
+            <div class="module-card"><div class="module-content"><h3>YouTube faceless</h3><p>Automatisation complète</p></div><div class="module-time">2h49</div></div>
+            <div class="module-card"><div class="module-content"><h3>Pinterest + IA + Affiliation</h3><p>Formation complète incluse</p></div></div>
+            <div class="module-card"><div class="module-content"><h3>Automatisations Instagram</h3><p>Bot emails + automatisation</p></div><div class="module-time">38 min</div></div>
         </div>
-
         <div class="module-category">
             <div class="category-header">04 – VENDRE & GÉNÉRER DES REVENUS</div>
-            <div class="module-card">
-                <div class="module-content">
-                    <h3>Vente en ligne & Robot Betty</h3>
-                    <p>Quoi dire pour que tes prospects achètent</p>
-                </div>
-                <div class="module-time">47 min</div>
-            </div>
-            <div class="module-card">
-                <div class="module-content">
-                    <h3>Créer ta boutique en ligne</h3>
-                    <p>Shopify, Systeme.io, etc.</p>
-                </div>
-                <div class="module-time">1h39</div>
-            </div>
-            <div class="module-card">
-                <div class="module-content">
-                    <h3>Crée tes offres</h3>
-                    <p>N'importe quel service en ligne</p>
-                </div>
-                <div class="module-time">1h03</div>
-            </div>
-            <div class="module-card">
-                <div class="module-content">
-                    <h3>De gratuit à $$$</h3>
-                    <p>Transformer un freebie en revenu</p>
-                </div>
-                <div class="module-time">1h10</div>
-            </div>
-            <div class="module-card">
-                <div class="module-content">
-                    <h3>Revente de la formation (MRR)</h3>
-                    <p>Toutes les clés pour réussir</p>
-                </div>
-                <div class="module-time">3h16</div>
-            </div>
+            <div class="module-card"><div class="module-content"><h3>Vente en ligne & Robot Betty</h3><p>Quoi dire pour que tes prospects achètent</p></div><div class="module-time">47 min</div></div>
+            <div class="module-card"><div class="module-content"><h3>Créer ta boutique en ligne</h3><p>Shopify, Systeme.io, etc.</p></div><div class="module-time">1h39</div></div>
+            <div class="module-card"><div class="module-content"><h3>Crée tes offres</h3><p>N'importe quel service en ligne</p></div><div class="module-time">1h03</div></div>
+            <div class="module-card"><div class="module-content"><h3>De gratuit à $$$</h3><p>Transformer un freebie en revenu</p></div><div class="module-time">1h10</div></div>
+            <div class="module-card"><div class="module-content"><h3>Revente de la formation (MRR)</h3><p>Toutes les clés pour réussir</p></div><div class="module-time">3h16</div></div>
         </div>
-
         <div class="module-category">
             <div class="category-header">05 – SOURCES SUPPLÉMENTAIRES</div>
-            <div class="module-card">
-                <div class="module-content">
-                    <h3>Affiliation</h3>
-                </div>
-                <div class="module-time">30+ min</div>
-            </div>
-            <div class="module-card">
-                <div class="module-content">
-                    <h3>UGC & partenariats rémunérés</h3>
-                </div>
-                <div class="module-time">57 min</div>
-            </div>
-            <div class="module-card">
-                <div class="module-content">
-                    <h3>Ebooks PLR</h3>
-                    <p>Bibliothèque avec droits de revente</p>
-                </div>
-            </div>
-            <div class="module-card">
-                <div class="module-content">
-                    <h3>Community manager</h3>
-                    <p>Gérer les réseaux et se faire payer</p>
-                </div>
-            </div>
+            <div class="module-card"><div class="module-content"><h3>Affiliation</h3></div><div class="module-time">30+ min</div></div>
+            <div class="module-card"><div class="module-content"><h3>UGC & partenariats rémunérés</h3></div><div class="module-time">57 min</div></div>
+            <div class="module-card"><div class="module-content"><h3>Ebooks PLR</h3><p>Bibliothèque avec droits de revente</p></div></div>
+            <div class="module-card"><div class="module-content"><h3>Community manager</h3><p>Gérer les réseaux et se faire payer</p></div></div>
         </div>
-
         <div class="module-category">
             <div class="category-header">06 – FINANCES & LIBERTÉ</div>
-            <div class="module-card">
-                <div class="module-content">
-                    <h3>Intelligence financière</h3>
-                </div>
-                <div class="module-time">37 min</div>
-            </div>
-            <div class="module-card">
-                <div class="module-content">
-                    <h3>Investissement immobilier & expatriation</h3>
-                    <p>Dubaï et autres destinations</p>
-                </div>
-            </div>
-            <div class="module-card" style="border-left-color: #00D9FF;">
-                <div class="module-content">
-                    <p style="color: #00D9FF; font-weight: 600;">+ Zooms en replay avec la créatrice — questions, audits de comptes, nouveautés réseaux.</p>
-                </div>
-            </div>
+            <div class="module-card"><div class="module-content"><h3>Intelligence financière</h3></div><div class="module-time">37 min</div></div>
+            <div class="module-card"><div class="module-content"><h3>Investissement immobilier & expatriation</h3><p>Dubaï et autres destinations</p></div></div>
+            <div class="module-card"><div class="module-content"><p style="color: #00D9FF; font-weight: 600;">+ Zooms en replay avec la créatrice — questions, audits de comptes, nouveautés réseaux.</p></div></div>
         </div>
     </section>
 
-    <!-- PRICING INTRO SECTION -->
     <section class="pricing-intro">
         <h2>3 formations au prix d'<span class="highlight-cyan">une seule</span></h2>
-        
         <div class="pricing-cards-grid">
-            <div class="pricing-card primary">
-                <div class="pricing-badge">FORMATION PRINCIPALE</div>
-                <h3>L'Indépendance Digitale</h3>
-                <div class="price">597 €</div>
-            </div>
-            <div class="pricing-card">
-                <div class="pricing-badge" style="background: rgba(0, 217, 255, 0.15); color: #00D9FF;">BONUS OFFERT</div>
-                <h3>La méthode virale</h3>
-                <div class="price" style="color: #00D9FF;">Inclus</div>
-                <p class="price-struck">147 €</p>
-            </div>
-            <div class="pricing-card">
-                <div class="pricing-badge" style="background: rgba(0, 217, 255, 0.15); color: #00D9FF;">BONUS OFFERT</div>
-                <h3>PIA — Pinterest + IA + Affiliation</h3>
-                <div class="price" style="color: #00D9FF;">Inclus</div>
-                <p class="price-struck">97 €</p>
-            </div>
+            <div class="pricing-card"><div class="pricing-badge">FORMATION PRINCIPALE</div><h3>L'Indépendance Digitale</h3><div class="price">597 €</div></div>
+            <div class="pricing-card"><div class="pricing-badge" style="background: rgba(0, 217, 255, 0.15); color: #00D9FF;">BONUS OFFERT</div><h3>La méthode virale</h3><div class="price" style="color: #00D9FF;">Inclus</div><p class="price-struck">147 €</p></div>
+            <div class="pricing-card"><div class="pricing-badge" style="background: rgba(0, 217, 255, 0.15); color: #00D9FF;">BONUS OFFERT</div><h3>PIA — Pinterest + IA + Affiliation</h3><div class="price" style="color: #00D9FF;">Inclus</div><p class="price-struck">97 €</p></div>
         </div>
-
-        <div class="value-banner">
-            <p>Valeur totale</p>
-            <div class="value-amount">597 € au lieu de 841 €</div>
-        </div>
-
-        <p style="text-align: center; font-size: 13px; color: #999999;">
-            + Licence MRR : revends la formation à 597 € et garde 100 % des bénéfices.
-        </p>
+        <div class="value-banner"><p>Valeur totale</p><div class="value-amount">597 € au lieu de 841 €</div></div>
+        <p style="text-align: center; font-size: 13px; color: #999999;">+ Licence MRR : revends la formation à 597 € et garde 100 % des bénéfices.</p>
     </section>
 
-    <!-- PAYMENT OPTIONS -->
     <section class="payment-section">
         <h2 style="margin-bottom: 50px;">Rejoins maintenant</h2>
-        
         <div class="payment-options">
-            <div class="payment-card highlighted">
-                <div class="payment-method">Paiement unique</div>
-                <div class="payment-amount">597 €</div>
-                <div class="payment-detail">Accès immédiat complet</div>
-            </div>
-            <div class="payment-card">
-                <div class="payment-method">4 fois via PayPal</div>
-                <div class="payment-amount">4 × 149 €</div>
-                <div class="payment-detail">597 € au total, sans frais</div>
-            </div>
+            <div class="payment-card highlighted"><div class="payment-method">Paiement unique</div><div class="payment-amount">597 €</div><div class="payment-detail">Accès immédiat complet</div></div>
+            <div class="payment-card"><div class="payment-method">4 fois via PayPal</div><div class="payment-amount">4 × 149 €</div><div class="payment-detail">597 € au total, sans frais</div></div>
         </div>
-
         <p class="disclaimer">Produit digital livré instantanément — aucun remboursement après l'achat.</p>
-        
         <div style="text-align: center;">
-            <button class="cta-primary">Je commence maintenant →</button>
+            <a href="https://beacons.ai/caplibertedigitale" class="cta-primary">Je commence maintenant →</a>
         </div>
     </section>
 
-    <!-- TESTIMONIALS -->
     <section class="testimonials">
         <h2>Elles ont sauté le <span class="highlight-cyan">pas</span></h2>
-        
-        <div class="testimonial-card">
-            <p class="testimonial-quote">"Je suis à la 4e formation digitale et c'est la première fois que je vends en moins de 24h. Merci pour cette pépite."</p>
-            <p class="testimonial-author">— Membre de la communauté</p>
-        </div>
-        
-        <div class="testimonial-card">
-            <p class="testimonial-quote">"Mon business m'a permis d'obtenir 365 € en complément de revenu juste avant Noël. Je suis enfin dans un job où je m'épanouis."</p>
-            <p class="testimonial-author">— Lancée en septembre, juste après la naissance de sa fille</p>
-        </div>
-        
-        <div class="testimonial-card">
-            <p class="testimonial-quote">"Première vente Pinterest en moins de 24h. J'ai signé ma 3e cliente pour l'accompagner sur les réseaux sociaux."</p>
-            <p class="testimonial-author">— Membre de la communauté</p>
-        </div>
-
-        <p style="text-align: center; color: #999999; font-size: 13px; margin-top: 40px;">
-            Ces résultats ne sont pas garantis — ils dépendent de l'implication et de la constance de chacune.
-        </p>
+        <div class="testimonial-card"><p class="testimonial-quote">"Je suis à la 4e formation digitale et c'est la première fois que je vends en moins de 24h. Merci pour cette pépite."</p><p class="testimonial-author">— Membre de la communauté</p></div>
+        <div class="testimonial-card"><p class="testimonial-quote">"Mon business m'a permis d'obtenir 365 € en complément de revenu juste avant Noël. Je suis enfin dans un job où je m'épanouis."</p><p class="testimonial-author">— Lancée en septembre, juste après la naissance de sa fille</p></div>
+        <div class="testimonial-card"><p class="testimonial-quote">"Première vente Pinterest en moins de 24h. J'ai signé ma 3e cliente pour l'accompagner sur les réseaux sociaux."</p><p class="testimonial-author">— Membre de la communauté</p></div>
+        <p style="text-align: center; color: #999999; font-size: 13px; margin-top: 40px;">Ces résultats ne sont pas garantis — ils dépendent de l'implication et de la constance de chacune.</p>
     </section>
 
-    <!-- REVENUE SOURCES -->
     <section class="sources">
         <h2>10 sources de revenus <span class="highlight-cyan">enseignées</span></h2>
-        
         <div class="sources-grid">
-            <div class="source-item">
-                <div class="source-dot">●</div>
-                <div class="source-text">Monétisation TikTok</div>
-            </div>
-            <div class="source-item">
-                <div class="source-dot">●</div>
-                <div class="source-text">Monétisation YouTube</div>
-            </div>
-            <div class="source-item">
-                <div class="source-dot">●</div>
-                <div class="source-text">Ton propre bot</div>
-            </div>
-            <div class="source-item">
-                <div class="source-dot">●</div>
-                <div class="source-text">UGC</div>
-            </div>
-            <div class="source-item">
-                <div class="source-dot">●</div>
-                <div class="source-text">Community manager</div>
-            </div>
-            <div class="source-item">
-                <div class="source-dot">●</div>
-                <div class="source-text">Affiliation + Pinterest</div>
-            </div>
-            <div class="source-item">
-                <div class="source-dot">●</div>
-                <div class="source-text">Tes propres offres</div>
-            </div>
-            <div class="source-item">
-                <div class="source-dot">●</div>
-                <div class="source-text">Monétisation de freebie</div>
-            </div>
-            <div class="source-item">
-                <div class="source-dot">●</div>
-                <div class="source-text">Ebooks PLR</div>
-            </div>
-            <div class="source-item">
-                <div class="source-dot">●</div>
-                <div class="source-text">MRR (revente)</div>
-            </div>
+            <div class="source-item"><div class="source-dot">●</div><div class="source-text">Monétisation TikTok</div></div>
+            <div class="source-item"><div class="source-dot">●</div><div class="source-text">Monétisation YouTube</div></div>
+            <div class="source-item"><div class="source-dot">●</div><div class="source-text">Ton propre bot</div></div>
+            <div class="source-item"><div class="source-dot">●</div><div class="source-text">UGC</div></div>
+            <div class="source-item"><div class="source-dot">●</div><div class="source-text">Community manager</div></div>
+            <div class="source-item"><div class="source-dot">●</div><div class="source-text">Affiliation + Pinterest</div></div>
+            <div class="source-item"><div class="source-dot">●</div><div class="source-text">Tes propres offres</div></div>
+            <div class="source-item"><div class="source-dot">●</div><div class="source-text">Monétisation de freebie</div></div>
+            <div class="source-item"><div class="source-dot">●</div><div class="source-text">Ebooks PLR</div></div>
+            <div class="source-item"><div class="source-dot">●</div><div class="source-text">MRR (revente)</div></div>
         </div>
     </section>
 
-    <!-- FAQ -->
     <section class="faq">
         <h2>Questions <span class="highlight-cyan">fréquentes</span></h2>
-        
-        <div class="faq-item">
-            <div class="faq-question">C'est quoi une formation MRR ?</div>
-            <div class="faq-answer">
-                MRR = Master Resell Rights. Tu achètes la formation et tu obtiens la licence pour la revendre à 597 € en gardant 100 % des bénéfices. Tu n'es pas obligée de la revendre — beaucoup l'utilisent pour développer leur propre activité.
-            </div>
-        </div>
-
-        <div class="faq-item">
-            <div class="faq-question">Je peux payer en plusieurs fois ?</div>
-            <div class="faq-answer">
-                Oui ! Paiement en 4 fois via PayPal (4 × 149,25 €). Sélectionne PayPal en bas de la page de paiement, connecte-toi puis choisis "Payer en 4X".
-            </div>
-        </div>
-
-        <div class="faq-item">
-            <div class="faq-question">Je suis débutante, c'est fait pour moi ?</div>
-            <div class="faq-answer">
-                Oui ! La formation est conçue pour partir de zéro. Pas besoin d'être experte, influenceuse ou d'avoir une grosse communauté.
-            </div>
-        </div>
+        <div class="faq-item"><div class="faq-question">C'est quoi une formation MRR ?</div><div class="faq-answer">MRR = Master Resell Rights. Tu achètes la formation et tu obtiens la licence pour la revendre à 597 € en gardant 100 % des bénéfices. Tu n'es pas obligée de la revendre — beaucoup l'utilisent pour développer leur propre activité.</div></div>
+        <div class="faq-item"><div class="faq-question">Je peux payer en plusieurs fois ?</div><div class="faq-answer">Oui ! Paiement en 4 fois via PayPal (4 × 149,25 €). Sélectionne PayPal en bas de la page de paiement, connecte-toi puis choisis "Payer en 4X".</div></div>
+        <div class="faq-item"><div class="faq-question">Je suis débutante, c'est fait pour moi ?</div><div class="faq-answer">Oui ! La formation est conçue pour partir de zéro. Pas besoin d'être experte, influenceuse ou d'avoir une grosse communauté.</div></div>
     </section>
 
-    <!-- FINAL CTA -->
     <section class="final-cta">
         <h2>T'es prête à reprendre ta <span class="highlight-cyan">liberté</span> ?</h2>
-        <button class="cta-primary" style="font-size: 18px; padding: 20px 60px;">Je commence maintenant →</button>
+        <a href="https://beacons.ai/caplibertedigitale" class="cta-primary" style="font-size: 18px; padding: 20px 60px;">Je commence maintenant →</a>
     </section>
 </body>
 </html>
