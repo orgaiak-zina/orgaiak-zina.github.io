@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vidéo Gratuite — Cap Liberté Digitale</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'brand-cyan':  '#00D9FF',
+            'brand-dark':  '#1f4158',
+            'brand-mid':   '#2d5270',
+            'brand-light': '#3a6b8d',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; overflow-x: hidden; }
+    .bg-grad      { background: linear-gradient(135deg, #3a6b8d 0%, #2d5270 100%); }
+    .bg-grad-dark { background: linear-gradient(135deg, #2d5270 0%, #1f4158 100%); }
+
+    /* Particules flottantes */
+    .particles { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; overflow: hidden; }
+    .particle  { position: absolute; border-radius: 50%; opacity: 0.15; animation: drift linear infinite; }
+    @keyframes drift {
+      0%   { bottom: -60px; opacity: 0; transform: translateX(0); }
+      10%  { opacity: 0.15; }
+      90%  { opacity: 0.15; }
+      100% { bottom: 110vh; opacity: 0; transform: translateX(80px); }
+    }
+
+    /* Vidéo placeholder */
+    .video-placeholder {
+      background: linear-gradient(135deg, #1a3550 0%, #0d1f30 100%);
+      border: 2px solid rgba(0,217,255,0.4);
+      border-radius: 16px;
+      aspect-ratio: 16/9;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+      cursor: default;
+    }
+    .video-placeholder::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(circle at center, rgba(0,217,255,0.08) 0%, transparent 70%);
+    }
+    .play-btn {
+      width: 72px; height: 72px;
+      background: rgba(0,217,255,0.15);
+      border: 2px solid #00D9FF;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 16px;
+    }
+
+    /* Formulaire */
+    .form-input {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(0,217,255,0.35);
+      color: white;
+      border-radius: 10px;
+      padding: 14px 18px;
+      width: 100%;
+      font-size: 15px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      outline: none;
+    }
+    .form-input:focus { border-color: #00D9FF; box-shadow: 0 0 0 3px rgba(0,217,255,0.15); }
+    .form-input::placeholder { color: rgba(255,255,255,0.45); }
+    .cta-btn {
+      background: #00D9FF; color: #1f4158;
+      font-weight: 800; font-size: 17px;
+      padding: 16px 32px; border-radius: 50px;
+      border: none; cursor: pointer; width: 100%;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .cta-btn:hover  { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(0,217,255,0.4); }
+    .cta-btn:active { transform: translateY(0); }
+
+    /* Loader */
+    .spinner { display: none; width: 22px; height: 22px; border: 3px solid rgba(31,65,88,0.3); border-top-color: #1f4158; border-radius: 50%; animation: spin 0.7s linear infinite; margin: 0 auto; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* Urgency bar */
+    .urgency-bar { background: linear-gradient(90deg, #00D9FF, #0099bb); color: #1f4158; font-weight: 700; font-size: 13px; text-align: center; padding: 10px 16px; letter-spacing: 0.3px; }
+
+    /* Trust badges */
+    .badge { display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.75); font-size: 13px; }
+
+    /* Success / Error */
+    #success-msg { display: none; }
+    #error-msg   { display: none; color: #ff6b6b; font-size: 13px; text-align: center; margin-top: 8px; }
+  </style>
+</head>
+<body class="text-white">
+
+<!-- Particules -->
+<div class="particles">
+  <div class="particle" style="left:8%;  width:8px;  height:8px;  background:#00D9FF; animation-duration:18s; animation-delay:0s;"></div>
+  <div class="particle" style="left:22%; width:5px;  height:5px;  background:#fff;    animation-duration:22s; animation-delay:3s;"></div>
+  <div class="particle" style="left:45%; width:10px; height:10px; background:#00D9FF; animation-duration:16s; animation-delay:6s;"></div>
+  <div class="particle" style="left:68%; width:6px;  height:6px;  background:#fff;    animation-duration:20s; animation-delay:1s;"></div>
+  <div class="particle" style="left:85%; width:8px;  height:8px;  background:#00D9FF; animation-duration:24s; animation-delay:4s;"></div>
+</div>
+
+<!-- Barre urgence -->
+<div class="urgency-bar">
+  🎁 Vidéo gratuite disponible bientôt — inscris-toi pour être notifiée en priorité
+</div>
+
+<!-- ════════ HERO ════════ -->
+<section class="relative z-10 py-16 px-5 bg-grad">
+  <div class="max-w-5xl mx-auto">
+
+    <!-- Logo / Marque -->
+    <div class="text-center mb-10">
+      <span class="text-brand-cyan font-bold tracking-widest text-sm uppercase">Cap Liberté Digitale</span>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+
+      <!-- Colonne gauche : texte + form -->
+      <div>
+        <p class="text-brand-cyan text-sm font-bold uppercase tracking-widest mb-4">🎬 Accès gratuit</p>
+
+        <h1 class="text-3xl md:text-4xl font-extrabold leading-tight mb-5">
+          Comment générer tes premiers revenus en ligne —
+          <span class="text-brand-cyan">sans te montrer,<br>sans expertise</span>
+        </h1>
+
+        <p class="text-gray-300 text-base leading-relaxed mb-8">
+          Dans cette vidéo gratuite, je te montre exactement comment des mamans occupées créent un complément de revenu digital… même avec seulement 20 minutes par jour.
+        </p>
+
+        <!-- Checklist bénéfices -->
+        <ul class="space-y-3 mb-10">
+          <li class="flex items-start gap-3">
+            <span class="text-brand-cyan font-bold mt-0.5">✓</span>
+            <span class="text-gray-200 text-sm">La méthode "faceless" : gagner de l'argent sans montrer ton visage</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-brand-cyan font-bold mt-0.5">✓</span>
+            <span class="text-gray-200 text-sm">Les 3 erreurs qui bloquent 90 % des débutantes (et comment les éviter)</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-brand-cyan font-bold mt-0.5">✓</span>
+            <span class="text-gray-200 text-sm">10 sources de revenus concrètes — avec laquelle commencer en premier</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-brand-cyan font-bold mt-0.5">✓</span>
+            <span class="text-gray-200 text-sm">Le secret de la licence MRR pour transformer un seul achat en revenu récurrent</span>
+          </li>
+        </ul>
+
+        <!-- Formulaire -->
+        <div class="p-7 rounded-2xl" style="background: rgba(0,0,0,0.25); border: 1px solid rgba(0,217,255,0.25);">
+          <p class="text-center font-bold text-lg mb-5">📩 Où envoyer ton accès gratuit ?</p>
+
+          <!-- Formulaire Airtable intégré -->
+          <iframe
+            class="airtable-embed"
+            src="https://airtable.com/embed/appuj5ldDE98glPbY/paggV2pN9N4gUmAPX/form"
+            frameborder="0"
+            onmousewheel=""
+            width="100%"
+            height="380"
+            style="background: transparent; border: none; border-radius: 12px;"
+            title="Formulaire d'inscription">
+          </iframe>
+
+          <!-- Trust -->
+          <div class="flex flex-col sm:flex-row gap-4 mt-5 justify-center">
+            <div class="badge"><span>🔒</span> 100 % gratuit</div>
+            <div class="badge"><span>✉️</span> Zéro spam</div>
+            <div class="badge"><span>🚫</span> Sans engagement</div>
+          </div>
+        </div>
+
+        <p class="text-gray-500 text-xs text-center mt-4">
+          Déjà +200 mamans inscrites · Tes données restent privées
+        </p>
+      </div>
+
+      <!-- Colonne droite : placeholder vidéo -->
+      <div>
+        <div class="video-placeholder w-full mb-6">
+          <div class="play-btn">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="#00D9FF">
+              <polygon points="5,3 19,12 5,21"/>
+            </svg>
+          </div>
+          <p class="text-brand-cyan font-bold text-lg mb-1 z-10">Vidéo disponible très bientôt</p>
+          <p class="text-gray-400 text-sm z-10 text-center px-4">Inscris-toi pour être la première à y accéder</p>
+
+          <!-- Badge "coming soon" -->
+          <div class="absolute top-4 right-4 text-xs font-bold px-3 py-1 rounded-full" style="background: rgba(0,217,255,0.15); border: 1px solid rgba(0,217,255,0.5); color: #00D9FF;">
+            COMING SOON
+          </div>
+        </div>
+
+        <!-- Témoignage mini -->
+        <div class="p-5 rounded-xl" style="background:#2d5270; border-left: 3px solid #00D9FF;">
+          <p class="italic text-sm text-gray-300 leading-relaxed mb-3">
+            "Première vente Pinterest en moins de 24h. J'ai signé ma 3e cliente pour l'accompagner sur les réseaux sociaux."
+          </p>
+          <p class="text-gray-400 text-xs">— Membre de la communauté Cap Liberté Digitale</p>
+        </div>
+
+        <div class="p-5 rounded-xl mt-4" style="background:#2d5270; border-left: 3px solid #00D9FF;">
+          <p class="italic text-sm text-gray-300 leading-relaxed mb-3">
+            "365 € en complément de revenu juste avant Noël. Je suis enfin dans un job où je m'épanouis."
+          </p>
+          <p class="text-gray-400 text-xs">— Lancée en septembre, juste après la naissance de sa fille</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════ POUR QUI ════════ -->
+<section class="relative z-10 py-16 px-5 bg-grad-dark">
+  <div class="max-w-3xl mx-auto text-center">
+    <h2 class="text-2xl md:text-3xl font-bold mb-10">
+      Cette vidéo est <span class="text-brand-cyan">pour toi</span> si…
+    </h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left">
+      <div class="p-5 rounded-xl" style="background:#2d5270; border-left: 3px solid #00D9FF;">
+        <p class="font-semibold text-sm">✓ Tu veux un revenu complémentaire sans tout bouleverser</p>
+      </div>
+      <div class="p-5 rounded-xl" style="background:#2d5270; border-left: 3px solid #00D9FF;">
+        <p class="font-semibold text-sm">✓ Tu es occupée et tu manques de temps</p>
+      </div>
+      <div class="p-5 rounded-xl" style="background:#2d5270; border-left: 3px solid #00D9FF;">
+        <p class="font-semibold text-sm">✓ Tu veux te lancer sans montrer ton visage</p>
+      </div>
+      <div class="p-5 rounded-xl" style="background:#2d5270; border-left: 3px solid #00D9FF;">
+        <p class="font-semibold text-sm">✓ Tu es débutante et tu ne sais pas par où commencer</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ FOOTER ════════ -->
+<footer class="relative z-10 py-8 px-5 bg-grad text-center text-gray-400 text-xs">
+  <p class="text-brand-cyan font-bold text-sm mb-2">Cap Liberté Digitale</p>
+  <p>© 2026 · Tous droits réservés · Produit digital · <a href="https://orgaiak-zina.github.io/" class="underline hover:text-white transition-colors">Voir la formation complète</a></p>
+  <p class="mt-2">Ces résultats ne sont pas garantis — ils dépendent de l'implication et de la constance de chacune.</p>
+</footer>
+
+
+
+</body>
+</html>
