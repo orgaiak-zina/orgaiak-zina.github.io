@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cap Liberté Digitale — De Maman Épuisée à Libre</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'brand-cyan':  '#00D9FF',
+            'brand-dark':  '#1f4158',
+            'brand-mid':   '#2d5270',
+            'brand-light': '#3a6b8d',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      overflow-x: hidden;
+    }
+    .bg-grad      { background: linear-gradient(135deg, #3a6b8d 0%, #2d5270 100%); }
+    .bg-grad-dark { background: linear-gradient(135deg, #2d5270 0%, #1f4158 100%); }
+
+    /* ── Balloons ── */
+    .balloons-container {
+      position: fixed; top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none; z-index: 0; overflow: hidden;
+    }
+    .balloon { position: absolute; bottom: -100px; opacity: 0.5; }
+    .balloon:nth-child(1) { left: 10%; animation: float 15s infinite ease-in-out 0s; }
+    .balloon:nth-child(2) { left: 25%; animation: float 18s infinite ease-in-out 2s; }
+    .balloon:nth-child(3) { left: 50%; animation: float 20s infinite ease-in-out 4s; }
+    .balloon:nth-child(4) { left: 75%; animation: float 16s infinite ease-in-out 1s; }
+    .balloon:nth-child(5) { left: 90%; animation: float 19s infinite ease-in-out 3s; }
+    @keyframes float {
+      0%   { bottom: -100px; opacity: 0; }
+      10%  { opacity: 0.5; }
+      90%  { opacity: 0.5; }
+      100% { bottom: 110vh; opacity: 0; transform: translateX(80px); }
+    }
+    @media (max-width: 768px) { .balloon { width: 40px !important; height: 55px !important; } }
+
+    /* ── FAQ accordion ── */
+    details summary          { cursor: pointer; list-style: none; }
+    details summary::-webkit-details-marker { display: none; }
+    .faq-icon                { transition: transform 0.3s ease; display: inline-block; }
+    details[open] .faq-icon  { transform: rotate(45deg); }
+
+    /* ── CTA glow ── */
+    .cta-btn:hover { box-shadow: 0 10px 40px rgba(0,217,255,0.45); transform: scale(1.04); }
+    .cta-btn { transition: all 0.3s ease; }
+
+    /* ── Block cards ── */
+    .learn-card {
+      background: rgba(45,82,112,0.7);
+      border: 1px solid rgba(0,217,255,0.2);
+      border-radius: 16px;
+      padding: 28px 24px;
+      transition: border-color 0.3s ease;
+    }
+    .learn-card:hover { border-color: rgba(0,217,255,0.55); }
+
+    /* ── Testimonial card ── */
+    .testi-card {
+      background: rgba(45,82,112,0.6);
+      border-left: 3px solid #00D9FF;
+      border-radius: 0 16px 16px 0;
+      padding: 32px 28px;
+    }
+
+    /* ── Community glow box ── */
+    .community-box {
+      background: linear-gradient(135deg, rgba(0,217,255,0.08), rgba(45,82,112,0.6));
+      border: 1px solid rgba(0,217,255,0.3);
+      border-radius: 20px;
+    }
+
+    /* ── Breathing room helpers ── */
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(0,217,255,0.7);
+      margin-bottom: 12px;
+    }
+  </style>
+</head>
+<body class="text-white">
+
+<!-- ═══════════════════════════════ BALLOONS ═══════════════════════════════ -->
+<div class="balloons-container" aria-hidden="true">
+  <svg class="balloon" width="55" height="75" viewBox="0 0 60 80" xmlns="http://www.w3.org/2000/svg">
+    <ellipse cx="30" cy="25" rx="20" ry="25" fill="#FF6B9D" opacity="0.75"/>
+    <path d="M 30 50 Q 28 60 30 70" stroke="#FFD700" stroke-width="1" fill="none"/>
+  </svg>
+  <svg class="balloon" width="55" height="75" viewBox="0 0 60 80" xmlns="http://www.w3.org/2000/svg">
+    <ellipse cx="30" cy="25" rx="20" ry="25" fill="#4ECDC4" opacity="0.75"/>
+    <path d="M 30 50 Q 28 60 30 70" stroke="#FFD700" stroke-width="1" fill="none"/>
+  </svg>
+  <svg class="balloon" width="55" height="75" viewBox="0 0 60 80" xmlns="http://www.w3.org/2000/svg">
+    <ellipse cx="30" cy="25" rx="20" ry="25" fill="#95E1D3" opacity="0.75"/>
+    <path d="M 30 50 Q 28 60 30 70" stroke="#FFD700" stroke-width="1" fill="none"/>
+  </svg>
+  <svg class="balloon" width="55" height="75" viewBox="0 0 60 80" xmlns="http://www.w3.org/2000/svg">
+    <ellipse cx="30" cy="25" rx="20" ry="25" fill="#F38181" opacity="0.75"/>
+    <path d="M 30 50 Q 28 60 30 70" stroke="#FFD700" stroke-width="1" fill="none"/>
+  </svg>
+  <svg class="balloon" width="55" height="75" viewBox="0 0 60 80" xmlns="http://www.w3.org/2000/svg">
+    <ellipse cx="30" cy="25" rx="20" ry="25" fill="#AA96DA" opacity="0.75"/>
+    <path d="M 30 50 Q 28 60 30 70" stroke="#FFD700" stroke-width="1" fill="none"/>
+  </svg>
+</div>
+
+<!-- ══════════════════════════════════ HERO ══════════════════════════════════ -->
+<section class="relative z-10 min-h-screen flex flex-col items-center justify-center text-center px-5 py-28 bg-grad">
+
+  <p class="section-label mb-6">Cap Liberté Digitale</p>
+
+  <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-8 max-w-3xl">
+    Ton travail t'épuise.<br>
+    <span class="text-brand-cyan">Et il ne te rapporte pas ce que tu mérites.</span>
+  </h1>
+
+  <p class="text-lg md:text-xl text-gray-200 mb-16 max-w-2xl leading-relaxed">
+    Je te montre comment créer un revenu en ligne — simplement, sans tout bouleverser,
+    et <em>entourée d'une communauté qui avance avec toi.</em>
+  </p>
+
+  <!-- 3 badges épurés -->
+  <div class="flex flex-wrap justify-center gap-3 mb-14">
+    <span class="border border-brand-cyan/40 text-brand-cyan rounded-full px-6 py-2 text-sm font-medium" style="background:rgba(0,217,255,0.08);">
+      ⏰ Plus de temps libre
+    </span>
+    <span class="border border-brand-cyan/40 text-brand-cyan rounded-full px-6 py-2 text-sm font-medium" style="background:rgba(0,217,255,0.08);">
+      💰 Opportunités de revenus
+    </span>
+    <span class="border border-brand-cyan/40 text-brand-cyan rounded-full px-6 py-2 text-sm font-medium" style="background:rgba(0,217,255,0.08);">
+      🚀 Licence MRR incluse
+    </span>
+  </div>
+
+  <a href="https://beacons.ai/caplibertedigitale"
+     class="cta-btn inline-block font-bold py-5 px-14 rounded-full text-lg"
+     style="background:#00D9FF; color:#1f4158;">
+    Rejoindre la communauté →
+  </a>
+
+  <p class="text-gray-400 text-sm mt-6">Accès immédiat après paiement</p>
+
+</section>
+
+<!-- ══════════════════════════════ POUR QUI ══════════════════════════════ -->
+<section class="relative z-10 py-24 px-5 bg-grad-dark">
+  <div class="max-w-3xl mx-auto">
+
+    <h2 class="text-2xl md:text-3xl font-bold text-center mb-4">Cette formation est <span class="text-brand-cyan">faite pour toi</span> si…</h2>
+    <div class="space-y-3 mt-10 mb-14">
+      <div class="flex items-center gap-4 p-5 rounded-xl" style="background:#2d5270;">
+        <span class="text-brand-cyan text-xl flex-shrink-0">✓</span>
+        <p class="font-semibold">Tu veux générer des revenus en ligne, sans quitter ton emploi du jour au lendemain</p>
+      </div>
+      <div class="flex items-center gap-4 p-5 rounded-xl" style="background:#2d5270;">
+        <span class="text-brand-cyan text-xl flex-shrink-0">✓</span>
+        <p class="font-semibold">Tu manques de temps — et tu veux que ton business tourne même quand tu ne travailles pas</p>
+      </div>
+      <div class="flex items-center gap-4 p-5 rounded-xl" style="background:#2d5270;">
+        <span class="text-brand-cyan text-xl flex-shrink-0">✓</span>
+        <p class="font-semibold">Tu veux utiliser l'IA et les réseaux sociaux, mais tu ne sais pas par où commencer</p>
+      </div>
+      <div class="flex items-center gap-4 p-5 rounded-xl" style="background:#2d5270;">
+        <span class="text-brand-cyan text-xl flex-shrink-0">✓</span>
+        <p class="font-semibold">Tu cherches la liberté — plus de flexibilité, plus d'options, moins d'épuisement</p>
+      </div>
+    </div>
+
+    <!-- Pas besoin d'être -->
+    <div class="community-box p-8">
+      <p class="text-brand-cyan font-bold text-base mb-5 text-center">
+        Tu n'as PAS besoin d'être…
+      </p>
+      <div class="grid grid-cols-2 gap-3">
+        <div class="flex items-center gap-3 text-gray-300">
+          <span class="text-red-400 font-bold text-lg">✗</span><span>Influenceuse</span>
+        </div>
+        <div class="flex items-center gap-3 text-gray-300">
+          <span class="text-red-400 font-bold text-lg">✗</span><span>Experte en digital</span>
+        </div>
+        <div class="flex items-center gap-3 text-gray-300">
+          <span class="text-red-400 font-bold text-lg">✗</span><span>Pro des réseaux sociaux</span>
+        </div>
+        <div class="flex items-center gap-3 text-gray-300">
+          <span class="text-red-400 font-bold text-lg">✗</span><span>Disponible 8h par jour</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════ TÉMOIGNAGES ══════════════════════════ -->
+<section class="relative z-10 py-24 px-5 bg-grad">
+  <div class="max-w-3xl mx-auto">
+
+    <p class="section-label text-center">Elles ont osé</p>
+    <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">
+      Elles ont fait le <span class="text-brand-cyan">premier pas</span>
+    </h2>
+    <p class="text-center text-gray-300 mb-14 text-base max-w-xl mx-auto">
+      Pas des superwomen. Juste des femmes ordinaires qui ont décidé d'avancer — ensemble.
+    </p>
+
+    <div class="space-y-6">
+
+      <div class="testi-card">
+        <p class="text-2xl text-brand-cyan mb-4">"</p>
+        <p class="italic text-base md:text-lg leading-relaxed mb-5 text-gray-100">
+          Je suis à ma 4e formation digitale et c'est la première fois que je vends en moins de 24h.
+          Pour la première fois, j'ai l'impression d'avoir trouvé ma place.
+        </p>
+        <div class="flex items-center gap-3">
+          <span class="w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold" style="background:#00D9FF; color:#1f4158;">M</span>
+          <p class="text-gray-400 text-sm">Membre de la communauté</p>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <p class="text-2xl text-brand-cyan mb-4">"</p>
+        <p class="italic text-base md:text-lg leading-relaxed mb-5 text-gray-100">
+          J'ai généré 365 € de complément de revenu juste avant Noël. Je me suis lancée en septembre,
+          juste après la naissance de ma fille. Je ne pensais pas que c'était possible aussi vite.
+        </p>
+        <div class="flex items-center gap-3">
+          <span class="w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold" style="background:#00D9FF; color:#1f4158;">S</span>
+          <p class="text-gray-400 text-sm">Nouvelle maman, lancée en 2 mois</p>
+        </div>
+      </div>
+
+      <div class="testi-card">
+        <p class="text-2xl text-brand-cyan mb-4">"</p>
+        <p class="italic text-base md:text-lg leading-relaxed mb-5 text-gray-100">
+          Première vente Pinterest en moins de 24h. Et j'ai signé ma 3e cliente pour la gestion
+          de ses réseaux. Ce qui me semblait hors de portée est devenu mon quotidien.
+        </p>
+        <div class="flex items-center gap-3">
+          <span class="w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold" style="background:#00D9FF; color:#1f4158;">L</span>
+          <p class="text-gray-400 text-sm">Community manager depuis la formation</p>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="text-center text-gray-500 text-xs mt-10">
+      Ces résultats sont réels mais non garantis — ils dépendent de l'implication de chacune.
+    </p>
+
+  </div>
+</section>
+
+<!-- ══════════════════════ CE QUE TU VAS APPRENDRE ══════════════════════ -->
+<section class="relative z-10 py-24 px-5 bg-grad-dark">
+  <div class="max-w-3xl mx-auto">
+
+    <p class="section-label text-center">Le programme</p>
+    <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">
+      Ce que tu vas <span class="text-brand-cyan">apprendre</span>
+    </h2>
+    <p class="text-center text-gray-300 mb-14 text-base max-w-xl mx-auto">
+      Un chemin clair. Pas une liste interminable. Juste ce dont tu as besoin pour avancer.
+    </p>
+
+    <div class="space-y-4">
+
+      <div class="learn-card">
+        <div class="flex items-start gap-4">
+          <span class="text-3xl flex-shrink-0">🚀</span>
+          <div>
+            <h3 class="font-bold text-lg text-white mb-1">Créer des revenus en ligne</h3>
+            <p class="text-brand-cyan text-sm font-medium mb-2">TikTok &nbsp;•&nbsp; affiliation &nbsp;•&nbsp; Pinterest &nbsp;•&nbsp; YouTube</p>
+            <p class="text-gray-300 text-sm">Découvre les plateformes qui paient — et comment en tirer parti, même sans audience.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="learn-card">
+        <div class="flex items-start gap-4">
+          <span class="text-3xl flex-shrink-0">🤖</span>
+          <div>
+            <h3 class="font-bold text-lg text-white mb-1">Utiliser l'IA & l'automatisation</h3>
+            <p class="text-brand-cyan text-sm font-medium mb-2">Gagner du temps &nbsp;•&nbsp; Simplifier les tâches répétitives</p>
+            <p class="text-gray-300 text-sm">Laisse la technologie travailler pour toi pendant que tu vis ta vie.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="learn-card">
+        <div class="flex items-start gap-4">
+          <span class="text-3xl flex-shrink-0">📱</span>
+          <div>
+            <h3 class="font-bold text-lg text-white mb-1">Construire ta présence en ligne</h3>
+            <p class="text-brand-cyan text-sm font-medium mb-2">Contenu &nbsp;•&nbsp; storytelling &nbsp;•&nbsp; réseaux sociaux</p>
+            <p class="text-gray-300 text-sm">Crée du contenu qui attire — sans montrer ton visage si tu ne le veux pas.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="learn-card">
+        <div class="flex items-start gap-4">
+          <span class="text-3xl flex-shrink-0">💸</span>
+          <div>
+            <h3 class="font-bold text-lg text-white mb-1">Transformer tes compétences en revenus</h3>
+            <p class="text-brand-cyan text-sm font-medium mb-2">Offres &nbsp;•&nbsp; ventes &nbsp;•&nbsp; MRR</p>
+            <p class="text-gray-300 text-sm">Crée tes propres offres — ou revends la formation et garde 100 % dès le premier jour.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="learn-card" style="border-color:rgba(0,217,255,0.4);">
+        <div class="flex items-start gap-4">
+          <span class="text-3xl flex-shrink-0">🤝</span>
+          <div>
+            <h3 class="font-bold text-lg text-white mb-1">Être accompagnée chaque semaine</h3>
+            <p class="text-brand-cyan text-sm font-medium mb-2">Lives &nbsp;•&nbsp; replays &nbsp;•&nbsp; communauté privée</p>
+            <p class="text-gray-300 text-sm">Tu n'es jamais seule. Une communauté t'attend et des lives hebdomadaires t'accompagnent.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════ COMMUNAUTÉ & ACCOMPAGNEMENT ══════════════════════ -->
+<section class="relative z-10 py-24 px-5 bg-grad">
+  <div class="max-w-3xl mx-auto">
+
+    <p class="section-label text-center">Tu n'es plus seule</p>
+    <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">
+      Une communauté qui <span class="text-brand-cyan">avance avec toi</span>
+    </h2>
+    <p class="text-center text-gray-300 mb-14 text-base max-w-xl mx-auto">
+      Rejoindre Cap Liberté Digitale, c'est rejoindre des femmes qui se soutiennent,
+      partagent leurs victoires, et progressent ensemble — semaine après semaine.
+    </p>
+
+    <div class="community-box p-8 md:p-12 mb-8">
+      <div class="space-y-8">
+
+        <div class="flex items-start gap-5">
+          <span class="text-3xl flex-shrink-0">🤝</span>
+          <div>
+            <h3 class="font-bold text-lg text-white mb-1">Lives Zoom chaque mercredi</h3>
+            <p class="text-gray-300 text-sm leading-relaxed">
+              Questions en direct &nbsp;•&nbsp; Audits de comptes &nbsp;•&nbsp; Nouvelles stratégies &nbsp;•&nbsp; Mises à jour
+            </p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-5">
+          <span class="text-3xl flex-shrink-0">🎥</span>
+          <div>
+            <h3 class="font-bold text-lg text-white mb-1">Replays disponibles</h3>
+            <p class="text-gray-300 text-sm leading-relaxed">
+              Tu ne peux pas être là en direct ? Pas de problème. Tous les lives sont enregistrés et accessibles quand tu veux.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex items-start gap-5">
+          <span class="text-3xl flex-shrink-0">💬</span>
+          <div>
+            <h3 class="font-bold text-lg text-white mb-1">Communauté privée sur Skool & Telegram</h3>
+            <p class="text-gray-300 text-sm leading-relaxed">
+              Un espace chaleureux pour poser tes questions, partager tes avancées, et recevoir du soutien — 7j/7.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <p class="text-center text-brand-cyan font-semibold text-base italic">
+      "Ce n'est pas juste une formation. C'est un endroit où tu peux enfin avancer sans te sentir seule."
+    </p>
+
+  </div>
+</section>
+
+<!-- ══════════════════════ 3 FORMATIONS AU PRIX D'1 ══════════════════════ -->
+<section class="relative z-10 py-24 px-5 bg-grad-dark">
+  <div class="max-w-3xl mx-auto">
+
+    <p class="section-label text-center">Ce que tu obtiens</p>
+    <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">
+      3 formations au prix d'<span class="text-brand-cyan">une seule</span>
+    </h2>
+    <p class="text-center text-gray-300 mb-14 text-base max-w-xl mx-auto">
+      Tout ce dont tu as besoin pour démarrer, développer et automatiser — en un seul accès.
+    </p>
+
+    <div class="space-y-3 mb-10">
+      <div class="flex items-center gap-4 p-5 rounded-xl" style="background:#2d5270;">
+        <span class="text-brand-cyan font-bold text-xl flex-shrink-0">✅</span>
+        <div>
+          <p class="font-bold text-white">L'Indépendance Digitale</p>
+          <p class="text-gray-400 text-sm">La formation principale complète</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-4 p-5 rounded-xl" style="background:#2d5270;">
+        <span class="text-brand-cyan font-bold text-xl flex-shrink-0">✅</span>
+        <div>
+          <p class="font-bold text-white">La Méthode Virale</p>
+          <p class="text-gray-400 text-sm">Stratégie réseaux sociaux complète — offerte</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-4 p-5 rounded-xl" style="background:#2d5270;">
+        <span class="text-brand-cyan font-bold text-xl flex-shrink-0">✅</span>
+        <div>
+          <p class="font-bold text-white">Pinterest + IA + Affiliation</p>
+          <p class="text-gray-400 text-sm">Formation complète — offerte</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pricing summary -->
+    <div class="community-box p-8 text-center">
+      <p class="text-gray-400 text-sm mb-2">Valeur totale des 3 formations</p>
+      <p class="text-2xl font-bold text-gray-300 line-through mb-4">841 €</p>
+      <p class="text-gray-300 text-sm mb-1">Ton accès complet aujourd'hui</p>
+      <p class="text-5xl font-extrabold text-brand-cyan mb-3">457 €</p>
+      <p class="text-gray-400 text-sm">+ Licence MRR : revends la formation et garde 100 % des bénéfices</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════ PAIEMENT ══════════════════════ -->
+<section class="relative z-10 py-24 px-5 bg-grad">
+  <div class="max-w-2xl mx-auto">
+
+    <p class="section-label text-center">Prête à commencer ?</p>
+    <h2 class="text-3xl md:text-4xl font-bold text-center mb-14">
+      Rejoins la <span class="text-brand-cyan">communauté</span>
+    </h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+      <div class="p-10 rounded-2xl text-center border-2 border-brand-cyan" style="background:rgba(0,217,255,0.06);">
+        <p class="text-gray-400 text-sm mb-3">Paiement unique</p>
+        <p class="text-5xl font-extrabold text-brand-cyan mb-3">457 €</p>
+        <p class="text-gray-300 text-sm">Accès immédiat à tout</p>
+      </div>
+      <div class="p-10 rounded-2xl text-center border-2" style="background:#2d5270; border-color:rgba(0,217,255,0.25);">
+        <p class="text-gray-400 text-sm mb-3">En plusieurs fois via PayPal</p>
+        <p class="text-5xl font-extrabold text-brand-cyan mb-3">4 × 115 €</p>
+        <p class="text-gray-300 text-sm">Sans frais supplémentaires</p>
+      </div>
+    </div>
+
+    <div class="text-center mb-8">
+      <a href="https://beacons.ai/caplibertedigitale"
+         class="cta-btn inline-block font-bold py-5 px-14 rounded-full text-lg"
+         style="background:#00D9FF; color:#1f4158;">
+        Rejoindre la communauté →
+      </a>
+    </div>
+
+    <div class="flex flex-wrap justify-center gap-6 text-gray-400 text-sm">
+      <span>⚡ Accès instantané</span>
+      <span>🔒 Paiement sécurisé</span>
+      <span>📱 Disponible partout</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- ════════════════════════════ FAQ ════════════════════════════ -->
+<section class="relative z-10 py-24 px-5 bg-grad">
+  <div class="max-w-2xl mx-auto">
+
+    <p class="section-label text-center">Tu te demandes peut-être…</p>
+    <h2 class="text-3xl md:text-4xl font-bold text-center mb-14">
+      Questions <span class="text-brand-cyan">fréquentes</span>
+    </h2>
+
+    <div class="space-y-3">
+
+      <details class="p-6 rounded-xl" style="background:#2d5270; border-top:1px solid rgba(0,217,255,0.2);">
+        <summary class="flex justify-between items-center">
+          <span class="font-bold text-white pr-4">Je suis débutante, c'est fait pour moi ?</span>
+          <span class="faq-icon text-brand-cyan text-2xl leading-none flex-shrink-0">+</span>
+        </summary>
+        <p class="text-gray-300 text-sm leading-relaxed mt-4">
+          Absolument. La formation part de zéro — pas de jargon, pas de prérequis. Si tu veux changer ta vie, tu es au bon endroit.
+        </p>
+      </details>
+
+      <details class="p-6 rounded-xl" style="background:#2d5270; border-top:1px solid rgba(0,217,255,0.2);">
+        <summary class="flex justify-between items-center">
+          <span class="font-bold text-white pr-4">Et si je manque vraiment de temps ?</span>
+          <span class="faq-icon text-brand-cyan text-2xl leading-none flex-shrink-0">+</span>
+        </summary>
+        <p class="text-gray-300 text-sm leading-relaxed mt-4">
+          C'est exactement pour ça que cette formation existe. Les modules sont courts et actionnables. 20 minutes par jour suffisent. Et une fois les automatisations en place, ton business continue sans toi.
+        </p>
+      </details>
+
+      <details class="p-6 rounded-xl" style="background:#2d5270; border-top:1px solid rgba(0,217,255,0.2);">
+        <summary class="flex justify-between items-center">
+          <span class="font-bold text-white pr-4">Est-ce que je serai accompagnée ?</span>
+          <span class="faq-icon text-brand-cyan text-2xl leading-none flex-shrink-0">+</span>
+        </summary>
+        <p class="text-gray-300 text-sm leading-relaxed mt-4">
+          Oui. Chaque semaine, un live Zoom en direct. Une communauté sur Skool et Telegram. Et tous les replays disponibles à n'importe quel moment. Tu n'es jamais seule.
+        </p>
+      </details>
+
+      <details class="p-6 rounded-xl" style="background:#2d5270; border-top:1px solid rgba(0,217,255,0.2);">
+        <summary class="flex justify-between items-center">
+          <span class="font-bold text-white pr-4">C'est quoi la licence MRR ?</span>
+          <span class="faq-icon text-brand-cyan text-2xl leading-none flex-shrink-0">+</span>
+        </summary>
+        <p class="text-gray-300 text-sm leading-relaxed mt-4">
+          MRR = Master Resell Rights. Tu peux revendre la formation à 457 € et garder 100 % des bénéfices. Ce n'est pas une obligation — beaucoup l'utilisent juste pour développer leur propre activité.
+        </p>
+      </details>
+
+      <details class="p-6 rounded-xl" style="background:#2d5270; border-top:1px solid rgba(0,217,255,0.2);">
+        <summary class="flex justify-between items-center">
+          <span class="font-bold text-white pr-4">Je peux payer en plusieurs fois ?</span>
+          <span class="faq-icon text-brand-cyan text-2xl leading-none flex-shrink-0">+</span>
+        </summary>
+        <p class="text-gray-300 text-sm leading-relaxed mt-4">
+          Oui, 4 fois sans frais via PayPal. Sélectionne PayPal à l'étape de paiement, puis choisis "Payer en 4X".
+        </p>
+      </details>
+
+      <details class="p-6 rounded-xl" style="background:#2d5270; border-top:1px solid rgba(0,217,255,0.2);">
+        <summary class="flex justify-between items-center">
+          <span class="font-bold text-white pr-4">Quand est-ce que j'ai accès ?</span>
+          <span class="faq-icon text-brand-cyan text-2xl leading-none flex-shrink-0">+</span>
+        </summary>
+        <p class="text-gray-300 text-sm leading-relaxed mt-4">
+          Immédiatement. Dès ta commande validée, tu reçois ton accès par email. Tu peux commencer dans les minutes qui suivent.
+        </p>
+      </details>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ════════════════════════ CTA FINAL ════════════════════════ -->
+<section class="relative z-10 py-28 px-5 text-center bg-grad-dark">
+  <div class="max-w-3xl mx-auto">
+
+    <h2 class="text-3xl md:text-5xl font-extrabold mb-6">
+      T'es prête à reprendre ta <span class="text-brand-cyan">liberté</span>
+    </h2>
+
+    <p class="text-gray-300 text-lg mb-4 max-w-2xl mx-auto leading-relaxed">
+      Rejoins une communauté de femmes qui avancent ensemble — vers plus de liberté,
+      plus de revenus, et moins d'épuisement.
+    </p>
+    <p class="text-gray-400 text-base mb-14 max-w-xl mx-auto">
+      Un chemin clair. Un accompagnement humain. Et enfin, le sentiment d'avoir un plan.
+    </p>
+
+    <a href="https://beacons.ai/caplibertedigitale"
+       class="cta-btn inline-block font-bold py-5 px-16 rounded-full text-xl mb-6"
+       style="background:#00D9FF; color:#1f4158;">
+      Rejoindre la communauté →
+    </a>
+
+    <p class="text-white font-bold text-sm mb-20">⚡ Accès immédiat — 457 € ou 4 × 115 € via PayPal</p>
+
+    <!-- Mon engagement -->
+    <div class="community-box p-8 md:p-12 text-left">
+      <div class="flex items-start gap-5">
+        <span class="text-4xl flex-shrink-0">🛡️</span>
+        <div>
+          <h3 class="font-bold text-brand-cyan text-xl mb-4">Mon engagement envers toi</h3>
+          <p class="text-gray-200 text-sm leading-relaxed mb-4">
+            Tu ne rejoins pas juste une formation. Tu rejoins une communauté active, chaleureuse, et en mouvement.
+            Des femmes qui, comme toi, ont décidé d'avancer.
+          </p>
+          <p class="text-gray-300 text-sm leading-relaxed mb-4">
+            Je m'engage à te proposer un contenu mis à jour régulièrement, des lives chaque semaine,
+            un accès aux replays, et une présence continue dans la communauté.
+            Tu n'avanceras jamais seule.
+          </p>
+          <p class="text-gray-500 text-xs leading-relaxed border-t border-white/10 pt-4 mt-4">
+            En tant que produit digital à accès immédiat, cet achat ne donne pas droit à un remboursement
+            une fois l'accès accordé. Prends le temps de lire attentivement avant de finaliser ta commande —
+            et si tu as des questions, je suis disponible avant ton achat.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</body>
+</html>
